@@ -3,6 +3,7 @@ import {
   Activity,
   ArrowDown,
   ArrowRight,
+  BookOpen,
   BrainCircuit,
   Check,
   ChevronLeft,
@@ -13,7 +14,6 @@ import {
   Download,
   Eye,
   Focus,
-  HeartPulse,
   Layers3,
   Lightbulb,
   Maximize2,
@@ -33,13 +33,12 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import { ecossistemaImg } from "@/assets/ecossistemaImg";
 
 type ChapterId = "inicio" | "contexto" | "metodo" | "ecosistema" | "transformacao" | "proximo";
 type BeforeInstallPromptEvent = Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: "accepted" | "dismissed" }> };
 
 type IconType = typeof Sparkles;
-
-const storageImage = "/manus-storage/AVR-S_pitch_sem_Rio2C_fe5cff3e.png";
 
 const chapters: Array<{
   id: ChapterId;
@@ -50,11 +49,11 @@ const chapters: Array<{
   icon: IconType;
 }> = [
   { id: "inicio", short: "01", label: "Abertura", title: "Perceber antes de responder.", accent: "cyan", icon: Sparkles },
-  { id: "contexto", short: "02", label: "O desafio", title: "Decisões não falham por falta de informação.", accent: "amber", icon: Focus },
-  { id: "metodo", short: "03", label: "O método", title: "Um sistema para transformar consciência em escolha.", accent: "green", icon: BrainCircuit },
-  { id: "ecosistema", short: "04", label: "O ecossistema", title: "Tecnologia com propósito, em várias camadas.", accent: "blue", icon: Network },
+  { id: "contexto", short: "02", label: "O desafio", title: "A tecnologia já responde por você. Quem te ajuda a perceber?", accent: "amber", icon: Focus },
+  { id: "metodo", short: "03", label: "O método", title: "Quatro movimentos. Uma nova resposta.", accent: "green", icon: BrainCircuit },
+  { id: "ecosistema", short: "04", label: "O ecossistema", title: "Começa em você. Cresce com você.", accent: "blue", icon: Network },
   { id: "transformacao", short: "05", label: "A jornada", title: "Da percepção à nova consciência.", accent: "magenta", icon: Route },
-  { id: "proximo", short: "06", label: "O próximo passo", title: "Uma conversa que pode mudar o jeito de decidir.", accent: "red", icon: WandSparkles },
+  { id: "proximo", short: "06", label: "O próximo passo", title: "Leve o AVR-S para onde a decisão acontece.", accent: "red", icon: WandSparkles },
 ];
 
 const methodSteps = [
@@ -93,29 +92,24 @@ const methodSteps = [
 ];
 
 const ecosystemItems = [
-  { title: "APP AVR-S", eyebrow: "Plataforma principal", copy: "Uma experiência digital para acompanhar o desenvolvimento da consciência no cotidiano.", icon: Cpu, color: "cyan" },
-  { title: "Espelhos de consciência", eyebrow: "Experiências guiadas", copy: "Interfaces que devolvem perguntas e padrões para a pessoa enxergar melhor o próprio movimento.", icon: Eye, color: "green" },
-  { title: "AVR-S Finance", eyebrow: "Aplicação contextual", copy: "A lógica do método aplicada a decisões, comportamento e planejamento financeiro.", icon: Layers3, color: "amber" },
-  { title: "CCR-Net", eyebrow: "Relacionamentos", copy: "Um olhar sistêmico para a qualidade das conexões que sustentam escolhas e resultados.", icon: UsersRound, color: "magenta" },
-  { title: "CECA", eyebrow: "Central de evolução", copy: "Conteúdo, formação e repertório para levar a consciência aplicada a diferentes contextos.", icon: Lightbulb, color: "blue" },
+  { title: "APP AVR-S", eyebrow: "Hoje · plataforma principal", copy: "O espelho diário: uma experiência que devolve perguntas e padrões para você enxergar o próprio movimento. Já no ar, com pagamento e o mecanismo do espelho funcionando.", icon: Cpu, color: "cyan" },
+  { title: "Espelhos de consciência", eyebrow: "Hoje · experiências", copy: "As interfaces que devolvem à pessoa como ela age e pensa — a tecnologia como espelho, não como oráculo.", icon: Eye, color: "green" },
+  { title: "AVR-S Finance", eyebrow: "Hoje · aplicação", copy: "A mesma lógica do método aplicada a decisões, comportamento e planejamento financeiro.", icon: Layers3, color: "amber" },
+  { title: "Trilogia da Transformação", eyebrow: "A profundidade", copy: "Crônicas de um Campeão · A Mente É a Causa · A Vida Sem Rascunho. O app é a prática diária; os livros são a origem e o aprofundamento do método.", icon: BookOpen, color: "violet" },
+  { title: "CCR-Net", eyebrow: "Horizonte · relações e organizações", copy: "A mesma consciência em escala: times, vínculos e cultura de decisão dentro de organizações inteiras.", icon: UsersRound, color: "magenta" },
+  { title: "CECA", eyebrow: "Horizonte · formação", copy: "Central de Evolução da Consciência Aplicada: formação e repertório para levar o método a novos contextos.", icon: Lightbulb, color: "blue" },
 ];
 
 const journeySteps = [
-  { label: "Consciência", note: "Perceber", icon: BrainCircuit, color: "violet" },
-  { label: "Mente", note: "Organizar", icon: Cpu, color: "blue" },
-  { label: "Percepção", note: "Enxergar", icon: Eye, color: "cyan" },
-  { label: "Escolha", note: "Decidir", icon: Check, color: "amber" },
-  { label: "Ação", note: "Praticar", icon: Zap, color: "orange" },
-  { label: "Vida", note: "Integrar", icon: HeartPulse, color: "red" },
-  { label: "Nova consciência", note: "Evoluir", icon: Orbit, color: "magenta" },
+  { label: "Perceber", note: "Sair do automático", icon: BrainCircuit, color: "violet" },
+  { label: "Enxergar", note: "Ver o padrão", icon: Eye, color: "cyan" },
+  { label: "Escolher", note: "Decidir consciente", icon: Check, color: "amber" },
+  { label: "Agir", note: "Praticar", icon: Zap, color: "orange" },
+  { label: "Evoluir", note: "Nova consciência", icon: Orbit, color: "magenta" },
 ];
 
 function scrollToChapter(id: ChapterId) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function exportPresentationPdf() {
-  window.print();
 }
 
 export default function Home() {
@@ -232,7 +226,6 @@ export default function Home() {
         </nav>
         <div className="topbar-actions">
           <button className="install-button" onClick={installApp}><Download size={15} /> Instalar app</button>
-          <button className="export-button" onClick={exportPresentationPdf}><ArrowDown size={15} /> Exportar PDF</button>
           <button className="present-button" onClick={() => setIsPresenterMode(true)}><Maximize2 size={15} /> Modo apresentação</button>
           <button className="menu-button" onClick={() => setIsNavOpen((open) => !open)} aria-label="Abrir navegação">
             {isNavOpen ? <X size={20} /> : <Menu size={20} />}
@@ -253,7 +246,7 @@ export default function Home() {
         <div className="hero-copy reveal-up">
           <p className="kicker"><span className="kicker-dot" /> Experiência interativa · AVR-S</p>
           <h1>Perceber<br /><em>antes</em> de responder.</h1>
-          <p className="hero-lede">Uma nova forma de desenvolver consciência para transformar decisões em uma vida mais saudável.</p>
+          <p className="hero-lede">Você toma centenas de decisões por dia no automático. O AVR-S é uma tecnologia que te devolve um espelho de como você age e pensa — para você voltar a escolher com consciência.</p>
           <div className="hero-actions">
             <button className="primary-cta" onClick={() => scrollToChapter("contexto")}>Começar a experiência <ArrowRight size={17} /></button>
             <button className="text-cta" onClick={() => setIsPresenterMode(true)}><Play size={15} fill="currentColor" /> Abrir modo apresentação</button>
@@ -274,19 +267,19 @@ export default function Home() {
       </section>
 
       <section id="contexto" className="context-section chapter-section">
-        <div className="section-heading split-heading reveal-up"><div><p className="section-index amber-text">02 / O desafio</p><h2>Informação explica.<br /><em>Consciência</em> transforma.</h2></div><p className="heading-aside">O AVR-S nasce para atuar no intervalo entre o que acontece e a resposta que escolhemos construir.</p></div>
+        <div className="section-heading split-heading reveal-up"><div><p className="section-index amber-text">02 / O desafio</p><h2>A tecnologia já responde por você.<br /><em>Quem te ajuda a perceber?</em></h2></div><p className="heading-aside">Nunca foi tão fácil ter respostas. Mas quanto mais a tecnologia responde, menos a gente percebe: reage antes de enxergar, repete padrões sem ver. O ponto cego nunca foi falta de informação — é falta de consciência sobre o próprio movimento.</p></div>
         <div className="context-grid">
           <article className="quote-panel reveal-up"><Quote size={28} /><p>“A tecnologia pode responder por você.<br /><strong>O AVR-S foi criado para ajudá-lo a perceber antes de responder.”</strong></p><span className="quote-line" /></article>
           <div className="insight-stack reveal-up">
             <article className="insight-card"><span className="insight-number">01</span><div><h3>Do automático</h3><p>Reatividade, ruído e decisões tomadas antes da percepção.</p></div><ArrowRight size={17} /></article>
             <article className="insight-card"><span className="insight-number">02</span><div><h3>Para o consciente</h3><p>Clareza para reconhecer padrões, escolher diferente e sustentar a mudança.</p></div><ArrowRight size={17} /></article>
-            <article className="insight-card accent-card"><span className="insight-number">03</span><div><h3>Em escala humana</h3><p>Uma experiência que combina método, tecnologia e responsabilidade.</p></div><ShieldCheck size={20} /></article>
+            <article className="insight-card accent-card"><span className="insight-number">03</span><div><h3>Um espelho, não um oráculo</h3><p>A tecnologia devolve a sua pergunta — não a resposta pronta.</p></div><ShieldCheck size={20} /></article>
           </div>
         </div>
       </section>
 
       <section id="metodo" className="method-section chapter-section">
-        <div className="section-heading reveal-up"><p className="section-index green-text">03 / O método</p><h2>Quatro letras.<br /><em>Uma nova resposta.</em></h2><p className="section-intro">O método AVR-S organiza a experiência em um ciclo simples de lembrar e profundo de praticar.</p></div>
+        <div className="section-heading reveal-up"><p className="section-index green-text">03 / O método</p><h2>Quatro movimentos.<br /><em>Uma nova resposta.</em></h2><p className="section-intro">O AVR-S organiza a consciência num ciclo simples de lembrar e profundo de praticar. No app, cada movimento vira uma pergunta-espelho: em vez de te dar a resposta, devolve a sua.</p></div>
         <div className="method-layout">
           <div className="method-list reveal-up">
             {methodSteps.map((step, index) => {
@@ -306,22 +299,22 @@ export default function Home() {
       </section>
 
       <section id="ecosistema" className="ecosystem-section chapter-section">
-        <div className="section-heading split-heading reveal-up"><div><p className="section-index blue-text">04 / O ecossistema</p><h2>Uma ideia central.<br /><em>Múltiplas aplicações.</em></h2></div><p className="heading-aside">O APP é a plataforma principal de um sistema que pode acompanhar pessoas, relações, organizações e decisões.</p></div>
+        <div className="section-heading split-heading reveal-up"><div><p className="section-index blue-text">04 / O ecossistema</p><h2>Começa em você.<br /><em>Cresce com você.</em></h2></div><p className="heading-aside">O app é a porta de entrada. A partir dele, a mesma consciência se aplica a decisões, relações e organizações inteiras.</p></div>
         <div className="ecosystem-layout">
-          <div className="map-card reveal-up"><div className="map-card-top"><span><Network size={16} /> VISÃO GERAL</span><span>AVR-S / ECOSSISTEMA</span></div><div className="map-image-wrap"><img src={storageImage} alt="Mapa visual do ecossistema AVR-S" /><div className="map-sheen" /></div><div className="map-caption"><span>Arraste a conversa para diferentes contextos.</span><button onClick={() => scrollToChapter("transformacao")}>Ver a trilha <ArrowRight size={15} /></button></div></div>
-          <div className="ecosystem-explorer reveal-up"><div className="explorer-label"><span>EXPLORAR CAMADAS</span><span>{String(activeEcosystem + 1).padStart(2, "0")} / 05</span></div>{ecosystemItems.map((item, index) => { const ItemIcon = item.icon; return <button key={item.title} className={activeEcosystem === index ? `eco-row active ${item.color}` : "eco-row"} onClick={() => setActiveEcosystem(index)}><span className="eco-icon"><ItemIcon size={17} /></span><span><small>{item.eyebrow}</small><strong>{item.title}</strong></span><ChevronRight size={17} /></button>; })}<div className={`eco-detail ${ecosystemItems[activeEcosystem].color}`}><span className="detail-pulse" /><p>{ecosystemItems[activeEcosystem].copy}</p></div></div>
+          <div className="map-card reveal-up"><div className="map-card-top"><span><Network size={16} /> VISÃO GERAL</span><span>AVR-S / ECOSSISTEMA</span></div><div className="map-image-wrap"><img src={ecossistemaImg} alt="Mapa mental do ecossistema AVR-S: propósito, público-alvo, método, produtos, tecnologia, resultados e visão de futuro" /><div className="map-sheen" /></div><div className="map-caption"><span>O mapa completo do ecossistema AVR-S.</span><button onClick={() => scrollToChapter("transformacao")}>Ver a trilha <ArrowRight size={15} /></button></div></div>
+          <div className="ecosystem-explorer reveal-up"><div className="explorer-label"><span>EXPLORAR CAMADAS</span><span>{String(activeEcosystem + 1).padStart(2, "0")} / {String(ecosystemItems.length).padStart(2, "0")}</span></div>{ecosystemItems.map((item, index) => { const ItemIcon = item.icon; return <button key={item.title} className={activeEcosystem === index ? `eco-row active ${item.color}` : "eco-row"} onClick={() => setActiveEcosystem(index)}><span className="eco-icon"><ItemIcon size={17} /></span><span><small>{item.eyebrow}</small><strong>{item.title}</strong></span><ChevronRight size={17} /></button>; })}<div className={`eco-detail ${ecosystemItems[activeEcosystem].color}`}><span className="detail-pulse" /><p>{ecosystemItems[activeEcosystem].copy}</p></div></div>
         </div>
       </section>
 
       <section id="transformacao" className="journey-section chapter-section">
-        <div className="section-heading centered-heading reveal-up"><p className="section-index magenta-text">05 / A jornada</p><h2>Da percepção<br /><em>à nova consciência.</em></h2><p className="section-intro">Uma trilha de transformação que torna visível o movimento interno por trás de cada escolha.</p></div>
+        <div className="section-heading centered-heading reveal-up"><p className="section-index magenta-text">05 / A jornada</p><h2>Da percepção<br /><em>à nova consciência.</em></h2><p className="section-intro">Cada vez que você se vê no espelho, o automático perde força e a escolha ganha. A trilha torna visível o movimento por trás de cada decisão.</p></div>
         <div className="journey-track reveal-up"><div className="journey-line" />{journeySteps.map((step, index) => { const StepIcon = step.icon; return <div className={`journey-node ${step.color}`} key={step.label} style={{ "--delay": `${index * 70}ms` } as React.CSSProperties}><span className="journey-dot"><StepIcon size={17} /></span><strong>{step.label}</strong><small>{step.note}</small></div>; })}</div>
         <div className="journey-statement reveal-up"><Activity size={17} /><span>Consciência aplicada não é um destino.<br /><strong>É um sistema de evolução contínua.</strong></span></div>
       </section>
 
       <section id="proximo" className="closing-section chapter-section">
         <div className="closing-orbit"><div className="closing-ring ring-one" /><div className="closing-ring ring-two" /><div className="closing-core"><Sparkles size={22} /><span>AVR-S</span></div></div>
-        <div className="closing-copy reveal-up"><p className="section-index red-text">06 / O próximo passo</p><h2>Levar consciência<br /><em>para onde a decisão acontece.</em></h2><p>Uma experiência feita para abrir conversas mais honestas, escolhas mais claras e futuros mais conscientes.</p><button className="primary-cta" onClick={() => setIsPresenterMode(true)}>Apresentar o AVR-S <ArrowRight size={17} /></button></div>
+        <div className="closing-copy reveal-up"><p className="section-index red-text">06 / O próximo passo</p><h2>Leve o AVR-S<br /><em>para onde a decisão acontece.</em></h2><p>Uma tecnologia feita para abrir escolhas mais claras e futuros mais conscientes — começando por uma pessoa e chegando a organizações inteiras.</p><button className="primary-cta" onClick={() => setIsPresenterMode(true)}>Apresentar o AVR-S <ArrowRight size={17} /></button></div>
         <footer className="pitch-footer"><span>AVR-S</span><span>Consciência em ação para um futuro melhor.</span><span>Experiência interativa</span></footer>
       </section>
 

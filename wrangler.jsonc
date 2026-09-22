@@ -1,0 +1,8 @@
+{
+  "name": "avrs-pitch",
+  "compatibility_date": "2025-09-15",
+  "assets": {
+    "directory": "./dist/public",
+    "not_found_handling": "single-page-application"
+  }
+}

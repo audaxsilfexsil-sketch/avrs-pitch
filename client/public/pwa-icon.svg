@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="116" fill="#071018"/>
+  <circle cx="256" cy="256" r="134" fill="#0d2730" stroke="#62e9ef" stroke-width="8"/>
+  <ellipse cx="256" cy="256" rx="206" ry="92" fill="none" stroke="#62e9ef" stroke-width="5" opacity=".75" transform="rotate(-22 256 256)"/>
+  <ellipse cx="256" cy="256" rx="218" ry="108" fill="none" stroke="#f6bf55" stroke-width="4" opacity=".6" transform="rotate(32 256 256)"/>
+  <circle cx="398" cy="190" r="13" fill="#62e9ef"/>
+  <text x="256" y="276" text-anchor="middle" fill="#eef6f5" font-family="Arial, sans-serif" font-size="66" font-weight="700" letter-spacing="7">AVR-S</text>
+</svg>

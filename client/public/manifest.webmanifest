@@ -1,0 +1,15 @@
+{
+  "name": "AVR-S | Experiência Interativa",
+  "short_name": "AVR-S",
+  "description": "Experiência interativa do sistema AVR-S — consciência em ação para um futuro melhor.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#071018",
+  "theme_color": "#071018",
+  "icons": [
+    { "src": "/pwa-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
